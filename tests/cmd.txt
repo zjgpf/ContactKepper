@@ -1,0 +1,21 @@
+/**
+to execute last line of a file: just run "tail -1 cmd.txt|bash"
+*/
+curl -d '{"name":"John Doe","email":"jdo@gmail.com","password":"123456"}' -H "Content-Type:application/json" -X POST http://localhost:5000/api/users
+
+curl -d '{"name":"John Doe","email":"jdo@gmail.com","password":"123456"}' -H "Content-Type:application/json" -X POST http://localhost:5000/api/auth
+
+eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyIjp7ImlkIjoiNWY0NGQ4MzI3Mzk5NjUyYjE2ODI3NDk1In0sImlhdCI6MTU5ODM1MDU5MSwiZXhwIjoxNjAxOTUwNTkxfQ.PEkX5kaa6kswinNsPgHrzZG6EMXAFbPdNFoOIhr1JWo
+
+curl -H "x-auth-token:eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyIjp7ImlkIjoiNWY0NGQ4MzI3Mzk5NjUyYjE2ODI3NDk1In0sImlhdCI6MTU5ODM1MDU5MSwiZXhwIjoxNjAxOTUwNTkxfQ.PEkX5kaa6kswinNsPgHrzZG6EMXAFbPdNFoOIhr1JWo"  http://localhost:5000/api/auth
+
+Add a contact:
+curl -d '{"name":"John Doe","email":"jdo@gmail.com","password":"123456"}'  -H "Content-Type:application/json"  -H "x-auth-token:eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyIjp7ImlkIjoiNWY0NGQ4MzI3Mzk5NjUyYjE2ODI3NDk1In0sImlhdCI6MTU5ODM1MDU5MSwiZXhwIjoxNjAxOTUwNTkxfQ.PEkX5kaa6kswinNsPgHrzZG6EMXAFbPdNFoOIhr1JWo"  -X POST http://localhost:5000/api/contacts
+
+curl -d '{"name":"test2","email":"test2@gmail.com","phone":"123458"}'  -H "Content-Type:application/json"  -H "x-auth-token:eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyIjp7ImlkIjoiNWY0NGQ4MzI3Mzk5NjUyYjE2ODI3NDk1In0sImlhdCI6MTU5ODM1MDU5MSwiZXhwIjoxNjAxOTUwNTkxfQ.PEkX5kaa6kswinNsPgHrzZG6EMXAFbPdNFoOIhr1JWo"  -X POST http://localhost:5000/api/contacts
+
+curl -H "x-auth-token:eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyIjp7ImlkIjoiNWY0NGQ4MzI3Mzk5NjUyYjE2ODI3NDk1In0sImlhdCI6MTU5ODM1MDU5MSwiZXhwIjoxNjAxOTUwNTkxfQ.PEkX5kaa6kswinNsPgHrzZG6EMXAFbPdNFoOIhr1JWo" http://localhost:5000/api/contacts
+
+curl -d '{"name":"test2","email":"test2@gmail.com","phone":"123459"}' -H "Content-Type:application/json" -H "x-auth-token:eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyIjp7ImlkIjoiNWY0NGQ4MzI3Mzk5NjUyYjE2ODI3NDk1In0sImlhdCI6MTU5ODM1MDU5MSwiZXhwIjoxNjAxOTUwNTkxfQ.PEkX5kaa6kswinNsPgHrzZG6EMXAFbPdNFoOIhr1JWo" -X PUT http://localhost:5000/api/contacts/5f45fa696f425f262bd9078f
+
+curl -H "x-auth-token:eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyIjp7ImlkIjoiNWY0NGQ4MzI3Mzk5NjUyYjE2ODI3NDk1In0sImlhdCI6MTU5ODM1MDU5MSwiZXhwIjoxNjAxOTUwNTkxfQ.PEkX5kaa6kswinNsPgHrzZG6EMXAFbPdNFoOIhr1JWo" -X DELETE http://localhost:5000/api/contacts/5f45fa696f425f262bd9078f
