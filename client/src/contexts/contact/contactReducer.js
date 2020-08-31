@@ -16,12 +16,12 @@ export default (state, action) => {
     case ADD_CONTACT: return {...state, contacts: [ ...state.contacts, action.payload ], loading: false };
     case DELETE_CONTACT: return {
       ...state,
-      contacts: state.contacts.filter( contact => contact.id !== action.payload ),
+      contacts: state.contacts.filter( contact => contact._id !== action.payload ),
       loading: false
     };
     case DELETE_FILTER: return {
       ...state,
-      filtered: state.filtered.filter( contact => contact.id !== action.payload ),
+      filtered: state.filtered.filter( contact => contact._id !== action.payload ),
       loading: false
     };
     case SET_CURRENT: return {
@@ -36,7 +36,7 @@ export default (state, action) => {
     };
     case UPDATE_CONTACT: return {
       ...state,
-      contacts: state.contacts.map( contact => contact.id === action.payload.id ? action.payload : contact )
+      contacts: state.contacts.map( contact => contact._id === action.payload._id ? action.payload : contact )
     }
     case FILTER_CONTACTS: return {
       ...state,
@@ -51,6 +51,11 @@ export default (state, action) => {
       ...state,
       filtered: null
     }
+    case GET_CONTACTS: return {
+      ...state,
+      contacts: state.payload,
+      loading: false
+    } 
     default: return {...state};
   };
 };

@@ -1,13 +1,13 @@
 import React, { useContext } from 'react';
 import ContactContext from '../../contexts/contact/contactContext';
 
-const ContactItem = ({contact: {id, name, email, phone, type}}) => {
+const ContactItem = ({contact: {_id, name, email, phone, type}}) => {
   const contactContext = useContext(ContactContext);
   const onDelete = () => {
-    contactContext.deleteContact(id); 
+    contactContext.deleteContact(_id); 
     contactContext.clearCurrent();
     if (contactContext.filtered) {
-      contactContext.deleteFilter(id);
+      contactContext.deleteFilter(_id);
     }
   };
   return (
@@ -23,7 +23,7 @@ const ContactItem = ({contact: {id, name, email, phone, type}}) => {
               <i className='fas fa-phone'/> {phone}
             </div>
             <div>
-              <button onClick={ () => contactContext.setCurrent({id, name, email, phone, type}) } className='bg-black mr-2 px-4 py-2 text-white rounded'>Edit</button> 
+              <button onClick={ () => contactContext.setCurrent({_id, name, email, phone, type}) } className='bg-black mr-2 px-4 py-2 text-white rounded'>Edit</button> 
               <button onClick={onDelete} className='bg-red-800 m-2 px-4 py-2 text-red-100 rounded'>Delete</button> 
             </div>
           </div>
